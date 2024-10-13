@@ -1,11 +1,11 @@
 version: 1
 services:
   - type: web
-    name: render  # Replace with your desired service name
-    env: python               # Specify the environment
-    buildCommand: pip install -r requirements.txt  # Command to install dependencies
-    startCommand: gunicorn app:app --bind 0.0.0.0:5000  # Command to start your app
-    autoDeploy: true          # Automatically deploy on each push
-    envVars:                  # Define environment variables if needed
+    name: your-service-name
+    env: python
+    buildCommand: pip install -r requirements.txt  # Common requirements file
+    startCommand: gunicorn flask_app.app:app --bind 0.0.0.0:5000
+    autoDeploy: true
+    envVars:
       - key: PORT
-        value: 5000           # Specify the port your app will listen on
+        value: 5000
