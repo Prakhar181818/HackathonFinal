@@ -4,7 +4,7 @@ services:
     name: jeevanti-service  # Give a meaningful name
     env: python
     buildCommand: pip install -r requirements.txt  # Ensure your requirements.txt file is in the root directory
-    startCommand: gunicorn flask_app.app:app --bind 0.0.0.0:5000  # Correct path to your Flask app
+    startCommand: gunicorn app:app --bind 0.0.0.0:5000  # Correct path to your Flask app
     autoDeploy: true
     envVars:
       - key: PORT
