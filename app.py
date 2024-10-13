@@ -35,7 +35,7 @@ users = {}
 
 @app.route('/')
 def home():
-    return render_template('/flask_app/templates/home.html')
+    return render_template('\flask_app\templates\home.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
