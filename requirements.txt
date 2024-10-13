@@ -1,6 +1,14 @@
+# Flask and general web libraries
 Flask
-streamlit
-google-generativeai
-Pillow
-python-dotenv
 gunicorn
+Jinja2
+
+# Streamlit-specific libraries
+streamlit
+
+# Google generative AI (for both Flask/Streamlit)
+google-generativeai
+
+# Other common dependencies
+python-dotenv
+Pillow
