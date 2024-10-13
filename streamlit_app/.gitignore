@@ -1,0 +1,4 @@
+# Ignore sensitive files
+streamlit_app/json.json
+
+# Other ignores can go here
