@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Chatbot - Jeevanti</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Load the full version of jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Image Chatbot</h1>
+        <form id="imageForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="input">Input Prompt:</label>
+                <input type="text" class="form-control" id="input" name="input" placeholder="Describe the image (optional)">
+            </div>
+            <div class="form-group">
+                <label for="file">Choose an image:</label>
+                <input type="file" class="form-control" id="file" name="file" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Analyze Image</button>
+        </form>
+        <div id="response" class="mt-4"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#imageForm').on('submit', function(event) {
+                event.preventDefault(); // Prevent form from submitting normally
+                const formData = new FormData(this);
+                $.ajax({
+                    url: '/analyze',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(data) {
+                        $('#response').html('<h4>Response:</h4><p>' + data.response + '</p>');
+                    },
+                    error: function(xhr) {
+                        $('#response').html('<p>Error: ' + xhr.responseJSON.error + '</p>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Medicines</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h4 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 28px; /* Increased font size */
+      font-weight: bold; /* Made header bold */
+    }
+
+    table {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 100%;
+      border-collapse: collapse;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #e0e0e0;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead tr {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+      }
+
+      td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 50%;
+        padding-left: 10px;
+        text-align: left;
+        font-weight: bold;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <h4>Order Medicines</h4>
+  <table id="medicalStores">
+    <thead>
+      <tr>
+        <th>Store Name</th>
+        <th>Location</th>
+        <th>Distance</th>
+        <th>Rating</th>
+        <th>Delivery Time</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Store Name">MediPlus Pharmacy</td>
+        <td data-label="Location">C-Scheme, Jaipur</td>
+        <td data-label="Distance">2 km</td>
+        <td data-label="Rating">4.5</td>
+        <td data-label="Delivery Time">30 mins</td>
+        <td data-label="Action"><button onclick="placeOrder('MediPlus Pharmacy')">Order Now</button></td>
+      </tr>
+      <tr>
+        <td data-label="Store Name">Health Mart</td>
+        <td data-label="Location">Malviya Nagar, Jaipur</td>
+        <td data-label="Distance">1.5 km</td>
+        <td data-label="Rating">4.7</td>
+        <td data-label="Delivery Time">20 mins</td>
+        <td data-label="Action"><button onclick="placeOrder('Health Mart')">Order Now</button></td>
+      </tr>
+      <tr>
+        <td data-label="Store Name">Pharma Care</td>
+        <td data-label="Location">Vaishali Nagar, Jaipur</td>
+        <td data-label="Distance">3 km</td>
+        <td data-label="Rating">4.2</td>
+        <td data-label="Delivery Time">40 mins</td>
+        <td data-label="Action"><button onclick="placeOrder('Pharma Care')">Order Now</button></td>
+      </tr>
+      <tr>
+        <td data-label="Store Name">Lifecare Pharmacy</td>
+        <td data-label="Location">Jagatpura, Jaipur</td>
+        <td data-label="Distance">2.5 km</td>
+        <td data-label="Rating">4.8</td>
+        <td data-label="Delivery Time">25 mins</td>
+        <td data-label="Action"><button onclick="placeOrder('Lifecare Pharmacy')">Order Now</button></td>
+      </tr>
+      <tr>
+        <td data-label="Store Name">24/7 Pharmacy</td>
+        <td data-label="Location">Sanganer, Jaipur</td>
+        <td data-label="Distance">1 km</td>
+        <td data-label="Rating">4.6</td>
+        <td data-label="Delivery Time">15 mins</td>
+        <td data-label="Action"><button onclick="placeOrder('24/7 Pharmacy')">Order Now</button></td>
+      </tr>
+      <tr>
+        <td data-label="Store Name">Quick Meds</td>
+        <td data-label="Location">Shyam Nagar, Jaipur</td>
+        <td data-label="Distance">1.8 km</td>
+        <td data-label="Rating">4.3</td>
+        <td data-label="Delivery Time">35 mins</td>
+        <td data-label="Action"><button onclick="placeOrder('Quick Meds')">Order Now</button></td>
+      </tr>
+      <tr>
+        <td data-label="Store Name">GenCare Pharmacy</td>
+        <td data-label="Location">Bapu Nagar, Jaipur</td>
+        <td data-label="Distance">2.2 km</td>
+        <td data-label="Rating">4.9</td>
+        <td data-label="Delivery Time">10 mins</td>
+        <td data-label="Action"><button onclick="placeOrder('GenCare Pharmacy')">Order Now</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  function placeOrder(storeName) {
+    fetch('/place_order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ store: storeName }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert(data.message);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+</script>
+
+</body>
+</html>

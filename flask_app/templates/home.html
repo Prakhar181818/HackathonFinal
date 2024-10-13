@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeevanti - Personalized Healthcare for Everyone</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f9ff 30%, #cfeffd 100%);
+            font-family: 'Roboto', sans-serif;
+            color: #00363a;
+        }
+        .navbar {
+            background-color: white; /* Blue shade */
+            padding: 15px 30px;
+        }
+        .navbar-brand img {
+            height: 50px; /* Adjust height as needed */
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        .nav-link {
+            color: white !important;
+            margin-left: 15px;
+            font-size: 18px;
+            padding: 10px 20px; /* Increased padding for better touch target */
+            border: 2px solid white; /* Added border */
+            border-radius: 25px; /* Rounded corners */
+            transition: all 0.3s ease-in-out; /* Smooth transition */
+            text-transform: uppercase; /* Uppercase text for professional look */
+        }
+        .nav-link:hover {
+            background-color: white; /* Background color on hover */
+            color: #3b5998; /* Blue shade on hover */
+            border: 2px solid #00695c; /* Border color on hover */
+        }
+        .landing-container {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .landing-header {
+            font-size: 52px;
+            font-weight: bold;
+            color: #004d40;
+            margin-bottom: 20px;
+        }
+        .landing-subtitle {
+            font-size: 22px;
+            color: #00796b;
+            margin-bottom: 40px;
+        }
+        .features-section {
+            padding: 60px 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+        .features-header {
+            font-size: 36px;
+            color: #004d40;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .feature-box {
+            background-color: #f5f5f5;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+        }
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+        .feature-icon {
+            font-size: 50px;
+            color: #004d40;
+            margin-bottom: 20px;
+        }
+        .feature-box h4 {
+            font-size: 28px;
+            margin-top: 10px;
+            color: #00695c;
+        }
+        .feature-box p {
+            font-size: 18px;
+            color: #00796b;
+        }
+        .cta-buttons {
+            margin-top: 50px;
+        }
+        .btn-custom {
+            background-color: #004d40;
+            color: white;
+            padding: 12px 40px;
+            font-size: 20px;
+            border-radius: 30px;
+            margin: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-custom:hover {
+            background-color: #00796b;
+        }
+        footer {
+            background-color: #3b5998; /* Blue shade */
+            padding: 25px;
+            color: white;
+            text-align: center;
+        }
+        .footer-links a {
+            color: #80deea;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">
+            <img src="/static/images/logo.png" alt="Jeevanti Logo"> <!-- Replace 'your-logo.png' with your actual logo file -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-custom" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-custom" href="/register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <div class="landing-container">
+        <h1 class="landing-header">Welcome to Jeevanti</h1>
+        <p class="landing-subtitle">The future of personalized healthcare, available at your fingertips. Experience the best care, tailored for you.</p>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container features-section">
+        <h3 class="features-header">Why Jeevanti?</h3>
+
+        <!-- Feature 1 -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <i class="fas fa-heartbeat feature-icon"></i>
+                    <h4>Personalized Care</h4>
+                    <p>Jeevanti provides customized healthcare plans that cater to your unique health needs, ensuring the best possible outcomes for every individual.</p>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <i class="fas fa-headset feature-icon"></i>
+                    <h4>24/7 AI Assistance</h4>
+                    <p>Our advanced AI-powered assistant is always available to offer guidance and answer your health-related queries, anytime, anywhere.</p>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <i class="fas fa-video feature-icon"></i>
+                    <h4>Seamless Video Consultations</h4>
+                    <p>Get expert medical advice through our video consultations. Connect with top healthcare professionals from the comfort of your home.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action Buttons -->
+    <div class="text-center cta-buttons">
+        <a href="/register" class="btn btn-custom">Join Now</a>
+        <a href="/login" class="btn btn-custom">Already a Member? Log In</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <p>&copy; 2024 Jeevanti. All rights reserved.</p>
+    </footer>
+
+    <!-- Include Bootstrap and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

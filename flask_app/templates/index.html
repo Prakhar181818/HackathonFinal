@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeevanti - Patient Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa 30%, #ffffff 100%);
+            font-family: 'Roboto', sans-serif;
+            color: #00363a;
+        }
+        .navbar {
+            background-color: #00695c;
+            padding: 15px 30px;
+        }
+        .navbar-brand {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .welcome-header {
+            font-size: 36px;
+            font-weight: bold;
+            color: #004d40;
+            margin: 40px 0;
+        }
+        .options-section {
+            margin-bottom: 50px;
+        }
+        .option-box {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+            min-height: 250px; /* Ensures all boxes have the same height */
+        }
+        .option-box h4 {
+            margin-bottom: 15px;
+        }
+        .option-box p {
+            margin-bottom: 20px;
+        }
+        .option-box:hover {
+            transform: translateY(-5px);
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #004d40;
+            padding: 25px;
+            color: white;
+            text-align: center;
+        }
+        .footer-links a {
+            color: #80deea;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="/static/images/logo.png" alt="Jeevanti Logo" height="50" class="d-inline-block align-top"> <!-- Adjusted height -->
+            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('profile') }}">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- User Welcome Section -->
+    <div class="container text-center">
+        <h1 class="welcome-header">Welcome {{ username }}</h1>
+        <p>Your health is our priority. Choose from the options below:</p>
+    </div>
+
+    <!-- Options Section -->
+    <div class="container options-section">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="option-box">
+                    <h4>Emergency Services</h4>
+                    <p>Need immediate help? Contact our emergency services.</p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ambulanceModal">
+                        Call Ambulance
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="option-box">
+                    <h4>Video Consultation</h4>
+                    <p>Consult with our healthcare professionals via video call.</p>
+                    <a href="/doctors" class="btn btn-primary">Find a Doctor</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="option-box">
+                    <h4>Vaidya Chatbot</h4>
+                    <p>Chat with our AI assistant for quick health advice.</p>
+                    <a href="/chatbot" class="btn btn-primary">Open Chatbot</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="option-box">
+                    <h4>Order Medicines</h4>
+                    <p>Get your medicines directly at your home in just mins by local stores.</p>
+                    <a href="/prescription" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="option-box">
+                    <h4>Image Analysis</h4>
+                    <p>Get insights on your health through image analysis.</p>
+                    <a href="/image_chatbot" class="btn btn-primary">Open Image AI Chatbot</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="option-box">
+                    <h4>Book Medical Tests</h4>
+                    <p>Schedule your medical tests conveniently.</p>
+                    <a href="/book_tests" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="ambulanceModal" tabindex="-1" role="dialog" aria-labelledby="ambulanceModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ambulanceModalLabel">Ambulance Request</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Ambulance is on the way! Please remain calm, and help will arrive shortly.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <p>&copy; 2024 Jeevanti. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

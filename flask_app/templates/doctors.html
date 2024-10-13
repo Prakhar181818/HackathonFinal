@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeevanti - Available Doctors</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: 'Roboto', sans-serif;
+            color: #00363a;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        table {
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            overflow: hidden; /* Ensures rounded corners work */
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+        .btn-primary[disabled] {
+            background-color: #ccc;
+            border-color: #ccc;
+        }
+        @media (max-width: 768px) {
+            .table-responsive {
+                overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center mb-5">Available Doctors</h1>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Specialization</th>
+                    <th>Experience</th>
+                    <th>Location</th>
+                    <th>Payment</th>
+                    <th>Video Call</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dr. A. Sharma</td>
+                    <td>Cardiologist</td>
+                    <td>15 years</td>
+                    <td>Mumbai</td>
+                    <td><button class="btn btn-success pay-btn">Pay</button></td>
+                    <td><button class="btn btn-primary video-call-btn" disabled>Start Video Call</button></td>
+                </tr>
+                <tr>
+                    <td>Dr. R. Gupta</td>
+                    <td>Dermatologist</td>
+                    <td>10 years</td>
+                    <td>Delhi</td>
+                    <td><button class="btn btn-success pay-btn">Pay</button></td>
+                    <td><button class="btn btn-primary video-call-btn" disabled>Start Video Call</button></td>
+                </tr>
+                <tr>
+                    <td>Dr. K. Iyer</td>
+                    <td>Neurologist</td>
+                    <td>12 years</td>
+                    <td>Bangalore</td>
+                    <td><button class="btn btn-success pay-btn">Pay</button></td>
+                    <td><button class="btn btn-primary video-call-btn" disabled>Start Video Call</button></td>
+                </tr>
+                <tr>
+                    <td>Dr. P. Menon</td>
+                    <td>Pediatrician</td>
+                    <td>8 years</td>
+                    <td>Chennai</td>
+                    <td><button class="btn btn-success pay-btn">Pay</button></td>
+                    <td><button class="btn btn-primary video-call-btn" disabled>Start Video Call</button></td>
+                </tr>
+                <tr>
+                    <td>Dr. M. Rao</td>
+                    <td>Orthopedic</td>
+                    <td>9 years</td>
+                    <td>Hyderabad</td>
+                    <td><button class="btn btn-success pay-btn">Pay</button></td>
+                    <td><button class="btn btn-primary video-call-btn" disabled>Start Video Call</button></td>
+                </tr>
+                <tr>
+                    <td>Dr. S. Kapoor</td>
+                    <td>Oncologist</td>
+                    <td>16 years</td>
+                    <td>Kolkata</td>
+                    <td><button class="btn btn-success pay-btn">Pay</button></td>
+                    <td><button class="btn btn-primary video-call-btn" disabled>Start Video Call</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // Script to handle payment and enabling the video call button
+    $(document).ready(function() {
+        $('.pay-btn').click(function() {
+            // Simulate a payment success popup
+            alert('Payment Successful!');
+
+            // Enable the video call button after payment
+            $(this).closest('tr').find('.video-call-btn').prop('disabled', false);
+        });
+
+        // Redirect to the video call page when clicking the video call button
+        $('.video-call-btn').click(function() {
+            if (!$(this).prop('disabled')) {
+                // Redirect to the video call page
+                window.location.href = "/video_call";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

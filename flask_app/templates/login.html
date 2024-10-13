@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeevanti - Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa 30%, #80deea 100%);
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            margin-top: 100px;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .login-header {
+            text-align: center;
+            color: #004d40;
+            font-weight: bold;
+        }
+        .login-container h2 {
+            margin-bottom: 30px;
+            color: #00796b;
+        }
+        .form-control {
+            border-radius: 20px;
+            border: 1px solid #00796b;
+        }
+        .btn-custom {
+            background-color: #004d40;
+            color: white;
+            border-radius: 20px;
+            padding: 10px;
+            width: 100%;
+        }
+        .btn-custom:hover {
+            background-color: #00796b;
+            color: white;
+        }
+        .message-box {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center">
+        <div class="login-container col-md-6">
+            <div class="login-header">
+                <h1>Welcome to Jeevanti</h1>
+                <p>Your health is our priority. Please log in to continue.</p>
+            </div>
+            <h2 class="text-center">Patient Login</h2>
+            
+            <!-- Login Form -->
+            <form method="POST" action="/login">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-custom">Login</button>
+                
+                <div class="message-box">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }}">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </form>
+
+            <!-- Link to Registration -->
+            <p class="text-center mt-4">
+                Don't have an account? <a href="/register" style="color: #00796b;">Register here</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

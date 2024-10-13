@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - Jeevanti</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #chatbox { border: 1px solid #ccc; padding: 10px; width: 300px; height: 400px; overflow-y: scroll; }
+        #user_input { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Chat with Jeevanti</h2>
+    <div id="chatbox"></div>
+    <input type="text" id="user_input" placeholder="Type your message...">
+    <button id="send_button">Send</button>
+
+    <h2>Upload Image</h2>
+    <input type="file" id="image_upload">
+    <button id="upload_button">Upload</button>
+
+    <script>
+        document.getElementById('send_button').onclick = function() {
+    var userInput = document.getElementById('user_input').value;
+    fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userInput })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('chatbox').innerHTML += `<div>${data.response}</div>`;
+    });
+};
+
+
+        document.getElementById('upload_button').onclick = function() {
+            var fileInput = document.getElementById('image_upload');
+            var formData = new FormData();
+            formData.append('image', fileInput.files[0]);
+
+            fetch('/upload_image', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            });
+        };
+    </script>
+</body>
+</html>

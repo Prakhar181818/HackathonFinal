@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .table td {
+            font-weight: bold;
+        }
+        .btn-back {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Patient Profile</h2>
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered table-responsive">
+                    <tbody>
+                        <tr>
+                            <th>Age</th>
+                            <td>{{ patient_data.age }}</td>
+                        </tr>
+                        <tr>
+                            <th>Gender</th>
+                            <td>{{ patient_data.gender }}</td>
+                        </tr>
+                        <tr>
+                            <th>Height</th>
+                            <td>{{ patient_data.height }}</td>
+                        </tr>
+                        <tr>
+                            <th>Weight</th>
+                            <td>{{ patient_data.weight }}</td>
+                        </tr>
+                        <tr>
+                            <th>Blood Group</th>
+                            <td>{{ patient_data.blood_group }}</td>
+                        </tr>
+                        <tr>
+                            <th>Allergies</th>
+                            <td>{{ patient_data.allergies }}</td>
+                        </tr>
+                        <tr>
+                            <th>Illness</th>
+                            <td>{{ patient_data.illness }}</td>
+                        </tr>
+                        <tr>
+                            <th>ECG</th>
+                            <td>{{ patient_data.ecg }}</td>
+                        </tr>
+                        <tr>
+                            <th>Ear</th>
+                            <td>{{ patient_data.ear }}</td>
+                        </tr>
+                        <tr>
+                            <th>Vision</th>
+                            <td>{{ patient_data.vision }}</td>
+                        </tr>
+                        <tr>
+                            <th>Identification Marks</th>
+                            <td>{{ patient_data.identification_marks }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    <a href="{{ url_for('index') }}" class="btn btn-primary btn-back">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
