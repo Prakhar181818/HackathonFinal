@@ -1,10 +1,10 @@
 version: 1
 services:
   - type: web
-    name: your-service-name
+    name: jeevanti-service  # Give a meaningful name
     env: python
-    buildCommand: pip install -r requirements.txt  # Common requirements file
-    startCommand: gunicorn flask_app.app:app --bind 0.0.0.0:5000
+    buildCommand: pip install -r requirements.txt  # Ensure your requirements.txt file is in the root directory
+    startCommand: gunicorn flask_app.app:app --bind 0.0.0.0:5000  # Correct path to your Flask app
     autoDeploy: true
     envVars:
       - key: PORT
